@@ -1,0 +1,38 @@
+{
+  "name": "reactnd-project-would-you-rather-starter",
+  "version": "1.0.0",
+  "description": "This is the starter code for the final assessment project for Udacity's React & Redux course.",
+  "main": "_DATA.js",
+  "dependencies": {
+    "history": "^4.10.1",
+    "hoist-non-react-statics": "^3.3.2",
+    "isarray": "^0.0.1",
+    "js-tokens": "^4.0.0",
+    "loose-envify": "^1.4.0",
+    "mini-create-react-context": "^0.4.1",
+    "object-assign": "^4.1.1",
+    "path-to-regexp": "^1.8.0",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-is": "^16.13.1",
+    "react-redux": "^7.2.2",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
+    "redux-thunk": "^2.3.0",
+    "redux": "^4.0.5",
+    "regenerator-runtime": "^0.13.7",
+    "resolve-pathname": "^3.0.0",
+    "scheduler": "^0.20.1",
+    "symbol-observable": "^1.2.0",
+    "tiny-invariant": "^1.1.0",
+    "tiny-warning": "^1.0.3",
+    "value-equal": "^1.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yuguo Zhao",
+  "license": "ISC"
+}
