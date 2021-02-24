@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { setAuthedUser } from "../actions/authedUser";
 import { handleInitialData } from "../actions/shared";
+import SignIn from "./SignIn";
 
 class App extends Component {
   componentDidMount() {
@@ -10,14 +10,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-
+        {this.props.authedUser === null ? <SignIn /> : <p>render home page</p>}
         <p>{this.props.authedUser}</p>
       </div>
     );
   }
 }
 
-function mapStateToProps({ authedUser }) {
+function mapStateToProps({ authedUser, questions, users }) {
   return {
     authedUser,
   };
