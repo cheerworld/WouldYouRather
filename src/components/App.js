@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+
 import { handleInitialData } from "../actions/shared";
 import SignIn from "./SignIn";
+import PollList from "./PollList";
 
 class App extends Component {
   componentDidMount() {
@@ -10,7 +12,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {this.props.authedUser === null ? <SignIn /> : <p>render home page</p>}
+        {this.props.authedUser === null
+          ? <SignIn />
+          : <PollList />}
         <p>{this.props.authedUser}</p>
       </div>
     );
