@@ -41,11 +41,17 @@ class PollList extends Component {
 
 function mapStateToProps({ users, questions, authedUser }) {
   const answeredIdList = Object.keys(users[authedUser].answers);
+  const unansweredIdList = Object.keys(questions).filter(
+    (id) => !answeredIdList.includes(id)
+  );
   return {
-    answeredIdList,
-    unansweredIdList: Object.keys(questions).filter(
-      (id) => !answeredIdList.includes(id)
+    answeredIdList: answeredIdList.sort(
+      (a, b) => questions[b].timestamp - questions[a].timestamp
+    ),
+    unansweredIdList: unansweredIdList.sort(
+      (a, b) => questions[b].timestamp - questions[a].timestamp
     ),
   };
 }
+
 export default connect(mapStateToProps)(PollList);
