@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { savePollAnswer } from "../actions/shared";
 
 class UnansweredPoll extends Component {
   state = {
@@ -16,8 +17,13 @@ class UnansweredPoll extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const option = this.state.option;
-    console.log(option)
-    //this.props.dispatch()
+    console.log(option);
+    const { authedUser, id } =this.props;
+    this.props.dispatch(savePollAnswer({
+      authedUser,
+      qid:id,
+      answer:option
+     }))
   }
 
   render() {
@@ -49,6 +55,7 @@ function mapStateToProps({ users, questions, authedUser }, { id }) {
   const option1 = questions[id].optionOne.text;
   const option2 = questions[id].optionTwo.text;
   return {
+    authedUser,
     poll: {
       name,
       avatar,
