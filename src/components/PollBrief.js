@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import Poll from "./Poll";
 
 class PollBrief extends Component {
   handleClick = (e) => {
     e.preventDefault();
-    console.log(e.target.value)
+
+    //go to "questions/:question_id" Poll page
 
   };
 
@@ -13,13 +15,19 @@ class PollBrief extends Component {
     const { pollBrief } = this.props;
     return (
       <div>
-        {this.props.id}
-        <h4>{pollBrief.name} asks:</h4>
-        <h4>Would you rather</h4>
-        <p>...{pollBrief.briefOption}...</p>
-        <button type="submit" value={this.props.id} onClick={this.handleClick}>
-          View Poll
-        </button>
+        <div>
+          <h4>{pollBrief.name} asks:</h4>
+          <h4>Would you rather</h4>
+          <p>...{pollBrief.briefOption}...</p>
+          <button
+            type="submit"
+            value={this.props.id}
+            onClick={this.handleClick}
+          >
+            View Poll
+          </button>
+        </div>
+        <Poll id={this.props.id}/>
       </div>
     );
   }
@@ -39,7 +47,6 @@ function mapStateToProps({ users, questions, authedUser }, { id }) {
 
   return {
     pollBrief,
-    user: Object.keys(users[authedUser].answers),
   };
 }
 

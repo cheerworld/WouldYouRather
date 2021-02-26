@@ -15,7 +15,6 @@ class App extends Component {
         {this.props.authedUser === null
           ? <SignIn />
           : <PollList />}
-        <p>{this.props.authedUser}</p>
       </div>
     );
   }
