@@ -31,7 +31,7 @@ class UnansweredPoll extends Component {
     const { name, avatar, option1, option2 } = this.props.poll;
     return (
       <div>
-        <h3>name</h3>
+        <h3>{name}</h3>
         <select value={this.state.option} onChange={this.handleChange}>
           <option disabled value="select" hidden>
             Select your option
