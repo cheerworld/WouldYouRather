@@ -15,7 +15,7 @@ class PollBrief extends Component {
     this.setState(() => ({
       showComponent: true,
     }));
-    this.props.history.push(`questions/${this.props.id}`)
+    //this.props.history.push(`questions/${this.props.id}`)
   };
 
   render() {
@@ -27,7 +27,7 @@ class PollBrief extends Component {
           <h4>{pollBrief.name} asks:</h4>
           <h4>Would you rather</h4>
           <p>...{pollBrief.briefOption}...</p>
-        
+          <Link to={`questions/${this.props.id}`}>
             <button
               type="submit"
               value={this.props.id}
@@ -35,12 +35,9 @@ class PollBrief extends Component {
             >
               View Poll
             </button>
-
+          </Link>
           {this.state.showComponent === true ? (
-            <Route
-              path="/questions/:question_id"
-              render={() => <poll id={this.props.id} />}
-            />
+            <Poll id={this.props.id} />
           ) : null}
         </div>
       </div>
