@@ -7,11 +7,11 @@ export default function users(state = {}, action) {
     case SAVE_USER_ANSWER:
       const { authedUser, qid, answer } = action;
       return {
-        ...users,
+        ...state,
         [authedUser]: {
-          ...users[authedUser],
+          ...state[authedUser],
           answers: {
-            ...users[authedUser].answers,
+            ...state[authedUser].answers,
             [qid]: answer,
           },
         },
