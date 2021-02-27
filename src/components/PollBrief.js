@@ -15,12 +15,15 @@ class PollBrief extends Component {
     this.setState(() => ({
       showComponent: true,
     }));
-    //this.props.history.push(`questions/${this.props.id}`)
+    this.props.history.push(`questions/${this.props.id}`)
   };
 
   render() {
     console.log(this.props);
     const { pollBrief } = this.props;
+    if (this.state.showComponent === true) {
+      return (<Poll id={this.props.id} />);
+    }
     return (
       <div>
         <div>
@@ -36,9 +39,7 @@ class PollBrief extends Component {
               View Poll
             </button>
           </Link>
-          {this.state.showComponent === true ? (
-            <Poll id={this.props.id} />
-          ) : null}
+
         </div>
       </div>
     );

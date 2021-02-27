@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import AnsweredPoll from "./AnsweredPoll";
 import UnansweredPoll from "./UnansweredPoll";
+import { withRouter } from "react-router-dom";
 
 class Poll extends Component {
   render() {
@@ -26,4 +27,4 @@ function mapStateToProps({ users, questions, authedUser }, { id }) {
   };
 }
 
-export default connect(mapStateToProps)(Poll);
+export default withRouter(connect(mapStateToProps)(Poll));
