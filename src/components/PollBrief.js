@@ -8,8 +8,8 @@ class PollBrief extends Component {
     const { pollBrief } = this.props;
 
     return (
-      <div>
-        <div>
+      <div className="Box1 poll">
+        <div className="pollBrief">
           <h4>{pollBrief.name} asks:</h4>
           <h4>Would you rather</h4>
           <p>...{pollBrief.briefOption}...</p>

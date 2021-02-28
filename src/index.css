@@ -12,15 +12,32 @@ code {
     monospace;
 }
 
-.signInBox {
+.Box1 {
   display: flex;
   justify-content: center;
 }
 
-.formBox {
+.Box2 {
   display: flex;
   flex-direction: column;
   border-radius: 25px;
   border: 2px solid;
   padding: 25px;
+}
+
+.viewQList {
+  display: flex;
+  flex-direction: row;
+}
+
+.Box1.poll {
+  border-radius: 25px;
+  border: 2px solid;
+  margin: 10px 0;
+  padding-bottom: 20px;
+}
+
+.pollBrief {
+  display: flex;
+  flex-direction: column;
 }

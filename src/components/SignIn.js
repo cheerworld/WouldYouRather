@@ -28,8 +28,8 @@ class SignIn extends Component {
     const users = this.props.usersId;
     console.log(users);
     return (
-      <div className="signInBox">
-        <form className="formBox" onSubmit={this.handleSubmit}>
+      <div className="Box1">
+        <form className="Box2" onSubmit={this.handleSubmit}>
           <h3>Welcome to Would You Rather App</h3>
           <p>Please sign in to continue</p>
           <h2>Sign in</h2>

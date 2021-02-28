@@ -6,7 +6,7 @@ class AnsweredPoll extends Component {
     const { poll } = this.props;
     console.log(this.props);
     return (
-      <div>
+      <div className="Box2">
         <h3>Asked by {poll.name}</h3>
         <p>{poll.avatar}</p>
         <p>Your Choice: Would you rather {poll.userAnswer}?</p>

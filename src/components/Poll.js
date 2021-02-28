@@ -8,7 +8,7 @@ class Poll extends Component {
     console.log(this.props);
     const { userVoteOrNot, id } = this.props;
     return (
-      <div>
+      <div className="Box1">
         {userVoteOrNot ? <AnsweredPoll id={id} /> : <UnansweredPoll id={id} />}
       </div>
     );

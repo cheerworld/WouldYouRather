@@ -30,7 +30,7 @@ class UnansweredPoll extends Component {
     console.log(this.props);
     const { name, avatar, option1, option2 } = this.props.poll;
     return (
-      <div>
+      <div className="Box2">
         <h3>{name}</h3>
         <select value={this.state.option} onChange={this.handleChange}>
           <option disabled value="select" hidden>

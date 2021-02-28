@@ -20,13 +20,16 @@ class PollList extends Component {
     console.log(this.props.unansweredIdList);
     console.log(this.props.answeredIdList);
     return (
-      <div>
+      <div className="Box1">
+        <div className="Box2">
+        <div className="viewQList">
         <button type="submit" value="unanswered" onClick={this.handleChange}>
           Unanswered Questions
         </button>
         <button type="submit" value="answered" onClick={this.handleChange}>
           Answered Questions
         </button>
+        </div>
         {this.state.list === "unanswered"
           ? this.props.unansweredIdList.map((id) => (
               <PollBrief key={id} id={id} />
@@ -34,6 +37,7 @@ class PollList extends Component {
           : this.props.answeredIdList.map((id) => (
               <PollBrief key={id} id={id} />
             ))}
+        </div>
       </div>
     );
   }
