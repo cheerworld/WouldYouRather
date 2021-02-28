@@ -10,10 +10,12 @@ class AnsweredPoll extends Component {
         <h3>Asked by {poll.name}</h3>
         <p>{poll.avatar}</p>
         <p>Your Choice: Would you rather {poll.userAnswer}?</p>
+        <p>{poll.userVotePercentage}% is your votes Percentage.</p>
         <p>
           {poll.userVotesNum} out of {poll.totalVotes} votes
         </p>
         <p>Would you rather {poll.otherOption}?</p>
+        <p>{poll.otherVotesPercentage}% is othter votes Percentage.</p>
         <p>
           {poll.otherVotesNum} out of {poll.totalVotes} votes
         </p>
@@ -37,6 +39,8 @@ function mapStateToProps({ users, questions, authedUser }, { id }) {
   const userAnswer = questions[id][users[authedUser].answers[id]].text;
   const otherOption =
     questions[id][options.filter((option) => option !== userOption)].text;
+  const userVotePercentage = Math.round((userVotesNum/totalVotes)*100);
+  const otherVotesPercentage = Math.round((otherVotesNum/totalVotes)*100);
   return {
     poll: {
       name,
@@ -46,6 +50,8 @@ function mapStateToProps({ users, questions, authedUser }, { id }) {
       userVotesNum,
       otherVotesNum,
       totalVotes,
+      userVotePercentage,
+      otherVotesPercentage,
     },
   };
 }
