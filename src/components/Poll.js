@@ -2,29 +2,29 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import AnsweredPoll from "./AnsweredPoll";
 import UnansweredPoll from "./UnansweredPoll";
-import { withRouter } from "react-router-dom";
 
 class Poll extends Component {
   render() {
     console.log(this.props);
-    const { userVote, id } = this.props;
+    const { userVoteOrNot, id } = this.props;
     return (
       <div>
-        {userVote ? <AnsweredPoll id={id} /> : <UnansweredPoll id={id} />}
+        {userVoteOrNot ? <AnsweredPoll id={id} /> : <UnansweredPoll id={id} />}
       </div>
     );
   }
 }
 
-function mapStateToProps({ users, questions, authedUser }, { id }) {
-  const user = Object.keys(users[authedUser].answers);
-  const userVote = user.includes(id);
+function mapStateToProps({ users, questions, authedUser }, props) {
+  console.log(props);
+  const id = props.match.params.question_id;
+  const userAnsweredPoll = Object.keys(users[authedUser].answers);
+  const userVoteOrNot = userAnsweredPoll.includes(id);
 
   return {
     id,
-    user,
-    userVote,
+    userVoteOrNot,
   };
 }
 
-export default withRouter(connect(mapStateToProps)(Poll));
+export default connect(mapStateToProps)(Poll);

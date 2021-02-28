@@ -14,18 +14,16 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-
-            {this.props.authedUser === null ? (
-              <SignIn />
-            ) : (
-              <div>
+          {this.props.authedUser === null ? (
+            <SignIn />
+          ) : (
+            <div>
               <Switch>
-              <Route path="/" component={PollList} />
-              <Route path="/questions/:question_id" component={Poll} />
+                <Route path="/" exact component={PollList} />
+                <Route path="/questions/:question_id" component={Poll} />
               </Switch>
-              </div>
-            )}
-
+            </div>
+          )}
         </div>
       </Router>
     );

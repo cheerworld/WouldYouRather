@@ -1,29 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Poll from "./Poll";
-import { Route, Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class PollBrief extends Component {
-  state = {
-    showComponent: false,
-  };
-
-  handleClick = (e) => {
-    e.preventDefault();
-
-    //go to "questions/:question_id" Poll page
-    this.setState(() => ({
-      showComponent: true,
-    }));
-    this.props.history.push(`questions/${this.props.id}`)
-  };
-
   render() {
     console.log(this.props);
     const { pollBrief } = this.props;
-    if (this.state.showComponent === true) {
-      return (<Poll id={this.props.id} />);
-    }
+
     return (
       <div>
         <div>
@@ -31,15 +14,8 @@ class PollBrief extends Component {
           <h4>Would you rather</h4>
           <p>...{pollBrief.briefOption}...</p>
           <Link to={`questions/${this.props.id}`}>
-            <button
-              type="submit"
-              value={this.props.id}
-              onClick={this.handleClick}
-            >
-              View Poll
-            </button>
+            <button type="submit">View Poll</button>
           </Link>
-
         </div>
       </div>
     );
@@ -63,4 +39,4 @@ function mapStateToProps({ users, questions, authedUser }, { id }) {
   };
 }
 
-export default withRouter(connect(mapStateToProps)(PollBrief));
+export default connect(mapStateToProps)(PollBrief);
