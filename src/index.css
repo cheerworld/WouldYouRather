@@ -41,3 +41,28 @@ code {
   display: flex;
   flex-direction: column;
 }
+
+.leaderBoard {
+  display: flex;
+  justify-content: center;
+}
+
+.score {
+  display: flex;
+  flex-direction: column;
+}
+
+.scoreDetail {
+  display: flex;
+  flex-direction: row;
+  border-radius: 25px;
+  border: 2px solid;
+  padding: 25px;
+  margin: 10px;
+}
+
+.userScoreColumn {
+  display: flex;
+  flex-direction: column;
+  margin: 0 40px;
+}
