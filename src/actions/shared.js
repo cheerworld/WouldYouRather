@@ -1,7 +1,12 @@
-import { _getUsers, _getQuestions, _saveQuestionAnswer } from "../_DATA.js";
+import {
+  _getUsers,
+  _getQuestions,
+  _saveQuestionAnswer,
+  _saveQuestion,
+} from "../_DATA.js";
 
-import { getQuestions, saveQuestion } from "./questions";
-import { getUsers, saveUserAnswer } from "./users";
+import { getQuestions, saveQuestion, addQuestion } from "./questions";
+import { getUsers, saveUserAnswer, addPollToUser } from "./users";
 
 export function handleInitialData() {
   return (dispatch) => {
@@ -25,5 +30,20 @@ export function savePollAnswer(info) {
       console.warn("Error in savePollAnswer: ", e);
       alert("There was an error in saving poll answer. Try again.");
     });
+  };
+}
+
+export function addPollToStore(info) {
+  return (dispatch) => {
+    return _saveQuestion(info)
+      .then((poll) => {
+        console.log(poll);
+        dispatch(addQuestion(poll));
+        dispatch(addPollToUser(poll));
+      })
+      .catch((e) => {
+        console.warn("Error in addPollToStore: ", e);
+        alert("There was an error in adding poll to store. Try again.");
+      });
   };
 }

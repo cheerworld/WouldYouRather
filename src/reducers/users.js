@@ -1,4 +1,8 @@
-import { GET_USERS, SAVE_USER_ANSWER } from "../actions/users";
+import {
+  GET_USERS,
+  SAVE_USER_ANSWER,
+  ADD_POLL_TO_USER,
+} from "../actions/users";
 
 export default function users(state = {}, action) {
   switch (action.type) {
@@ -14,6 +18,15 @@ export default function users(state = {}, action) {
             ...state[authedUser].answers,
             [qid]: answer,
           },
+        },
+      };
+    case ADD_POLL_TO_USER:
+      const { author, id } = action.poll;
+      return {
+        ...state,
+        [author]: {
+          ...state[author],
+          questions: state[author].questions.concat([id]),
         },
       };
     default:
