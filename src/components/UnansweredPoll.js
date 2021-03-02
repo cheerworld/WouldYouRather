@@ -4,11 +4,12 @@ import { savePollAnswer } from "../actions/shared";
 
 class UnansweredPoll extends Component {
   state = {
-    option: "select",
+    option: null,
   };
 
   handleChange = (e) => {
     const option = e.target.value;
+    console.log(option);
     this.setState(() => ({
       option,
     }));
@@ -18,32 +19,42 @@ class UnansweredPoll extends Component {
     e.preventDefault();
     const option = this.state.option;
     console.log(option);
-    const { authedUser, id } =this.props;
-    this.props.dispatch(savePollAnswer({
-      authedUser,
-      qid:id,
-      answer:option
-     }))
-  }
+    const { authedUser, id } = this.props;
+    this.props.dispatch(
+      savePollAnswer({
+        authedUser,
+        qid: id,
+        answer: option,
+      })
+    );
+  };
 
   render() {
     console.log(this.props);
     const { name, avatar, option1, option2 } = this.props.poll;
     return (
       <div className="Box2">
-        <h3>{name}</h3>
-        <select value={this.state.option} onChange={this.handleChange}>
-          <option disabled value="select" hidden>
-            Select your option
-          </option>
-          <option value="optionOne">{option1}</option>
-          <option value="optionTwo">{option2}</option>
-        </select>
-        <button type="submit"
-          disabled={this.state.option === "select"}
-          onClick={this.handleSubmit}>
-          Sign In
-        </button>
+        <h3>{name} asks: </h3>
+        <h4>Would you rather..</h4>
+        <form className="chooseAnswer" onSubmit={this.handleSubmit}>
+          <input
+            type="radio"
+            value="optionOne"
+            checked={this.state.option === "optionOne"}
+            onChange={this.handleChange}
+          />
+          {option1}
+
+          <input
+            type="radio"
+            value="optionTwo"
+            checked={this.state.option === "optionTwo"}
+            onChange={this.handleChange}
+          />
+          {option2}
+
+          <button type="submit">Submit</button>
+        </form>
       </div>
     );
   }

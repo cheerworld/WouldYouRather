@@ -72,3 +72,13 @@ code {
   font-size: 20px;
   color: #c3392a;
 }
+
+.addPoll {
+  display: flex;
+  flex-direction: column;
+}
+
+.chooseAnswer {
+  display: flex;
+  flex-direction: column;
+}
