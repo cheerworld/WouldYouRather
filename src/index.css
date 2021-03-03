@@ -82,3 +82,24 @@ code {
   display: flex;
   flex-direction: column;
 }
+
+.active {
+  font-weight: bold;
+}
+
+.nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+li {
+  list-style-type: none;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.showAfterLogin {
+  display: flex;
+  flex-direction: row;
+}

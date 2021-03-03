@@ -7,6 +7,7 @@ import PollList from "./PollList";
 import Poll from "./Poll";
 import LeaderBoard from "./LeaderBoard";
 import NewPoll from "./NewPoll";
+import Nav from "./Nav";
 
 class App extends Component {
   componentDidMount() {
@@ -16,6 +17,8 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
+          <Nav />
+          <hr />
           {this.props.authedUser === null ? (
             <SignIn />
           ) : (
