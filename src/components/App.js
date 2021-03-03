@@ -7,7 +7,8 @@ import PollList from "./PollList";
 import Poll from "./Poll";
 import LeaderBoard from "./LeaderBoard";
 import NewPoll from "./NewPoll";
-import Nav from "./Nav";
+import NavCompo from "./NavCompo";
+import Container from "react-bootstrap/Container";
 
 class App extends Component {
   componentDidMount() {
@@ -16,22 +17,24 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="App">
-          <Nav />
-          <hr />
-          {this.props.authedUser === null ? (
-            <SignIn />
-          ) : (
-            <div>
-              <Switch>
-                <Route path="/" exact component={PollList} />
-                <Route path="/add" component={NewPoll} />
-                <Route path="/leaderboard" component={LeaderBoard} />
-                <Route path="/questions/:question_id" component={Poll} />
-              </Switch>
-            </div>
-          )}
-        </div>
+        <Container>
+          <div className="App">
+            <NavCompo />
+            <hr />
+            {this.props.authedUser === null ? (
+              <SignIn />
+            ) : (
+              <div>
+                <Switch>
+                  <Route path="/" exact component={PollList} />
+                  <Route path="/add" component={NewPoll} />
+                  <Route path="/leaderboard" component={LeaderBoard} />
+                  <Route path="/questions/:question_id" component={Poll} />
+                </Switch>
+              </div>
+            )}
+          </div>
+        </Container>
       </Router>
     );
   }
