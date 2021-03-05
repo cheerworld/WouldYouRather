@@ -15,10 +15,10 @@ function NavCompo(props) {
     <Navbar bg="light" expand="lg">
       <Navbar.Brand>Would You Rather...</Navbar.Brand>
 
-      <Nav className="mr-auto">
-        <Nav.Link href="/">Home</Nav.Link>
-        <Nav.Link href="/add">New Question</Nav.Link>
-        <Nav.Link href="/leaderboard">Leader Board</Nav.Link>
+      <Nav variant="tabs" className="mr-auto">
+        <Nav.Link as={NavLink} to="/" exact>Home</Nav.Link>
+        <Nav.Link as={NavLink} to="/add">New Question</Nav.Link>
+        <Nav.Link as={NavLink} to="/leaderboard">Leader Board</Nav.Link>
       </Nav>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse className="justify-content-end">
