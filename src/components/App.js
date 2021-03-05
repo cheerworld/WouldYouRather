@@ -20,7 +20,6 @@ class App extends Component {
         <Container>
           <div className="App">
             <NavCompo />
-            <hr />
             {this.props.authedUser === null ? (
               <SignIn />
             ) : (
