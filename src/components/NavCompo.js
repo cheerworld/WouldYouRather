@@ -5,6 +5,8 @@ import { deleteAuthedUser } from "../actions/authedUser";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Image from "react-bootstrap/Image";
+import Button from "react-bootstrap/Button";
+import "../CSS/nav.css";
 
 function NavCompo(props) {
   const handleClick = (e) => {
@@ -13,18 +15,22 @@ function NavCompo(props) {
   };
 
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="light" expand="lg" variant="primary">
       <Navbar.Brand>Would You Rather...</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse className="justify-content-end">
         <Nav variant="pills" className="mr-auto">
-          <Nav.Link as={NavLink} to="/" exact>
+          <Nav.Link as={NavLink} to="/" exact activeClassName="active-nav-link">
             Home
           </Nav.Link>
-          <Nav.Link as={NavLink} to="/add">
+          <Nav.Link as={NavLink} to="/add" activeClassName="active-nav-link">
             New Question
           </Nav.Link>
-          <Nav.Link as={NavLink} to="/leaderboard">
+          <Nav.Link
+            as={NavLink}
+            to="/leaderboard"
+            activeClassName="active-nav-link"
+          >
             Leader Board
           </Nav.Link>
         </Nav>
@@ -39,7 +45,9 @@ function NavCompo(props) {
                 roundedCircle
                 className="navAvatar"
               />
-              <button onClick={handleClick}>Logout</button>
+              <Button variant="outline-warning" onClick={handleClick}>
+                Logout
+              </Button>
             </div>
           ) : null}
         </Navbar.Text>

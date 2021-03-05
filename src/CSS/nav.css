@@ -1,0 +1,21 @@
+.showAfterLogin {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.navAvatar {
+  width:30px;
+  height: 40px;
+  margin-right: 20px;
+}
+
+.hiUser {
+  margin-right: 20px;
+}
+
+.active-nav-link {
+  background-color: #8ac4d0;
+  color:#fbeeac;
+  font-weight: bold;
+}

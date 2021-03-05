@@ -86,31 +86,3 @@ code {
 .active {
   font-weight: bold;
 }
-
-.nav ul {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-}
-
-li {
-  list-style-type: none;
-  padding: 10px;
-  text-decoration: none;
-}
-
-.showAfterLogin {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.navAvatar {
-  width:30px;
-  height: 40px;
-  margin-right: 20px;
-}
-
-.hiUser {
-  margin-right: 20px;
-}
