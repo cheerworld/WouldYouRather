@@ -1,21 +1,22 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Image from "react-bootstrap/Image";
+import Card from "react-bootstrap/Card";
 
 class AnsweredPoll extends Component {
   render() {
     const { poll } = this.props;
     console.log(this.props);
     return (
-      <div className="Box2">
-        <h3>Asked by {poll.name}</h3>
-        <p>{poll.avatar}</p>
-        <Image
-          src={poll.avatar}
-          alt={poll.name}
-          thumbnail
-          className="pollAvatar"
-        />
+      <div >
+       <Card border="info" style={{ border: "2px solid" }}>
+        <Card.Body className="pollBrief">
+        <div className="left">
+        <Card.Title>Asked by {poll.name}</Card.Title>
+        <Card.Img variant="bottom" src={poll.avatar} alt={poll.name} className="pollAvatar"/>
+        </div>
+        <div className="right">
+        <h4>Results:</h4>
         <p>Your Choice: Would you rather {poll.userAnswer}?</p>
         <p>{poll.userVotePercentage} is your votes Percentage.</p>
         <p>
@@ -26,6 +27,9 @@ class AnsweredPoll extends Component {
         <p>
           {poll.otherVotesNum} out of {poll.totalVotes} votes
         </p>
+        </div>
+        </Card.Body>
+       </Card>
       </div>
     );
   }

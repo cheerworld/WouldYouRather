@@ -28,6 +28,7 @@ code {
 .viewQList {
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 .Box1.poll {
@@ -98,4 +99,8 @@ code {
 
 .left {
   padding-right: 45px;
+}
+
+.cardText {
+  min-width: 31ch;
 }

@@ -25,7 +25,7 @@ class PollBrief extends Component {
             </div>
             <div className="right">
               <Card.Title>Would you rather</Card.Title>
-              <Card.Text>...{pollBrief.briefOption}...</Card.Text>
+              <Card.Text className="cardText">...{pollBrief.briefOption}...</Card.Text>
               <Link to={`questions/${this.props.id}`}>
                 <Button variant="success" type="submit">
                   View Poll
@@ -43,7 +43,7 @@ function mapStateToProps({ users, questions, authedUser }, { id }) {
   const name = users[questions[id].author].name;
   const avatar = users[questions[id].author].avatarURL;
   const timestamp = questions[id].timestamp;
-  const briefOption = questions[id].optionOne.text;
+  const briefOption = questions[id].optionOne.text.substring(0, 25);
   const pollBrief = {
     name,
     avatar,
