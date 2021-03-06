@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import Image from "react-bootstrap/Image";
 
 class AnsweredPoll extends Component {
   render() {
@@ -9,13 +10,19 @@ class AnsweredPoll extends Component {
       <div className="Box2">
         <h3>Asked by {poll.name}</h3>
         <p>{poll.avatar}</p>
+        <Image
+          src={poll.avatar}
+          alt={poll.name}
+          thumbnail
+          className="pollAvatar"
+        />
         <p>Your Choice: Would you rather {poll.userAnswer}?</p>
-        <p>{poll.userVotePercentage}% is your votes Percentage.</p>
+        <p>{poll.userVotePercentage} is your votes Percentage.</p>
         <p>
           {poll.userVotesNum} out of {poll.totalVotes} votes
         </p>
         <p>Would you rather {poll.otherOption}?</p>
-        <p>{poll.otherVotesPercentage}% is othter votes Percentage.</p>
+        <p>{poll.otherVotesPercentage} is othter votes Percentage.</p>
         <p>
           {poll.otherVotesNum} out of {poll.totalVotes} votes
         </p>
