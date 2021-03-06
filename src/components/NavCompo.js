@@ -15,7 +15,7 @@ function NavCompo(props) {
   };
 
   return (
-    <Navbar bg="light" expand="lg" variant="primary">
+    <Navbar bg="light" expand="lg" className="nav">
       <Navbar.Brand>Would You Rather...</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse className="justify-content-end">

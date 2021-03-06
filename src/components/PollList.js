@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PollBrief from "./PollBrief";
+import ButtonGroup from "react-bootstrap/ButtonGroup";
+import Button from "react-bootstrap/Button";
 
 class PollList extends Component {
   state = {
@@ -22,21 +24,33 @@ class PollList extends Component {
     return (
       <div className="Box1">
         <div className="Box2">
-        <div className="viewQList">
-        <button type="submit" value="unanswered" onClick={this.handleChange}>
-          Unanswered Questions
-        </button>
-        <button type="submit" value="answered" onClick={this.handleChange}>
-          Answered Questions
-        </button>
-        </div>
-        {this.state.list === "unanswered"
-          ? this.props.unansweredIdList.map((id) => (
-              <PollBrief key={id} id={id} />
-            ))
-          : this.props.answeredIdList.map((id) => (
-              <PollBrief key={id} id={id} />
-            ))}
+          <div className="viewQList">
+            <ButtonGroup size="lg">
+              <Button
+                variant="outline-info"
+                type="submit"
+                value="unanswered"
+                onClick={this.handleChange}
+              >
+                Unanswered Questions
+              </Button>
+              <Button
+                variant="outline-info"
+                type="submit"
+                value="answered"
+                onClick={this.handleChange}
+              >
+                Answered Questions
+              </Button>
+            </ButtonGroup>
+          </div>
+          {this.state.list === "unanswered"
+            ? this.props.unansweredIdList.map((id) => (
+                <PollBrief key={id} id={id} />
+              ))
+            : this.props.answeredIdList.map((id) => (
+                <PollBrief key={id} id={id} />
+              ))}
         </div>
       </div>
     );

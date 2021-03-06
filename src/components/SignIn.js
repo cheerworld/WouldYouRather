@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { setAuthedUser } from "../actions/authedUser";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
 class SignIn extends Component {
   state = {
@@ -29,26 +31,36 @@ class SignIn extends Component {
     console.log(users);
     return (
       <div className="Box1">
-        <form className="Box2" onSubmit={this.handleSubmit}>
+        <Form as="form" className="Box2" onSubmit={this.handleSubmit}>
           <h3>Welcome to Would You Rather App</h3>
           <p>Please sign in to continue</p>
-          <h2>Sign in</h2>
-          <select value={this.state.value} onChange={this.handleChange}>
-            <option disabled value="select" hidden>
-              Select user
-            </option>
-            {users.map((user) => {
-              return (
-                <option key={user} value={user}>
-                  {user}
-                </option>
-              );
-            })}
-          </select>
-          <button type="submit" disabled={this.state.value === "select"}>
+          <Form.Group controlId="Select">
+            <Form.Label as="h3">Sign In</Form.Label>
+            <Form.Control
+              as="select"
+              value={this.state.value}
+              onChange={this.handleChange}
+            >
+              <option disabled value="select" hidden>
+                Select user
+              </option>
+              {users.map((user) => {
+                return (
+                  <option key={user} value={user}>
+                    {user}
+                  </option>
+                );
+              })}
+            </Form.Control>
+          </Form.Group>
+          <Button
+            variant="success"
+            type="submit"
+            disabled={this.state.value === "select"}
+          >
             Sign In
-          </button>
-        </form>
+          </Button>
+        </Form>
       </div>
     );
   }
