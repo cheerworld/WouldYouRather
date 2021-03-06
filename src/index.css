@@ -31,15 +31,13 @@ code {
 }
 
 .Box1.poll {
-  border-radius: 25px;
-  border: 2px solid;
   margin: 10px 0;
   padding-bottom: 20px;
 }
 
 .pollBrief {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .leaderBoard {
@@ -85,4 +83,19 @@ code {
 
 .active {
   font-weight: bold;
+}
+
+.pollAvatar {
+  width: 200px;
+  height: 260px;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.left {
+  padding-right: 45px;
 }
