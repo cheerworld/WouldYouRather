@@ -1,35 +1,67 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Image from "react-bootstrap/Image";
 import Card from "react-bootstrap/Card";
+import CardColumns from "react-bootstrap/CardColumns";
+import ProgressBar from "react-bootstrap/ProgressBar";
 
 class AnsweredPoll extends Component {
   render() {
     const { poll } = this.props;
     console.log(this.props);
+    const vote = poll.totalVotes === 1 ? " vote" : " votes";
+
     return (
-      <div >
-       <Card border="info" style={{ border: "2px solid" }}>
-        <Card.Body className="pollBrief">
-        <div className="left">
-        <Card.Title>Asked by {poll.name}</Card.Title>
-        <Card.Img variant="bottom" src={poll.avatar} alt={poll.name} className="pollAvatar"/>
-        </div>
-        <div className="right">
-        <h4>Results:</h4>
-        <p>Your Choice: Would you rather {poll.userAnswer}?</p>
-        <p>{poll.userVotePercentage} is your votes Percentage.</p>
-        <p>
-          {poll.userVotesNum} out of {poll.totalVotes} votes
-        </p>
-        <p>Would you rather {poll.otherOption}?</p>
-        <p>{poll.otherVotesPercentage} is othter votes Percentage.</p>
-        <p>
-          {poll.otherVotesNum} out of {poll.totalVotes} votes
-        </p>
-        </div>
-        </Card.Body>
-       </Card>
+      <div>
+        <Card border="info" style={{ border: "2px solid" }}>
+          <Card.Body className="pollBrief">
+            <div className="leftCenter">
+              <Card.Title>Asked by {poll.name}</Card.Title>
+              <Card.Img
+                variant="bottom"
+                src={poll.avatar}
+                alt={poll.name}
+                className="pollAvatar"
+              />
+            </div>
+            <div>
+              <h5>Results:</h5>
+              <CardColumns className="right">
+                <Card border="success" className="yourAnswer">
+                  <Card.Body>
+                    <Card.Title>Would you rather {poll.userAnswer}?</Card.Title>
+                    <p>{poll.userVotePercentage} is your votes Percentage.</p>
+                    <ProgressBar
+                      variant="info"
+                      now={poll.userVotePercentage}
+                      label={`${poll.userVotePercentage}%`}
+                    />
+                    <Card.Text>
+                      {poll.userVotesNum} out of {poll.totalVotes} {vote}
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+                <Card>
+                  <Card.Body>
+                    <Card.Title>
+                      Would you rather {poll.otherOption}?
+                    </Card.Title>
+                    <p>
+                      {poll.otherVotesPercentage} is the other votes Percentage.
+                    </p>
+                    <ProgressBar
+                      variant="info"
+                      now={poll.otherVotesPercentage}
+                      label={`${poll.otherVotesPercentage}%`}
+                    />
+                    <Card.Text>
+                      {poll.otherVotesNum} out of {poll.totalVotes} {vote}
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              </CardColumns>
+            </div>
+          </Card.Body>
+        </Card>
       </div>
     );
   }
@@ -50,8 +82,8 @@ function mapStateToProps({ users, questions, authedUser }, { id }) {
   const userAnswer = questions[id][users[authedUser].answers[id]].text;
   const otherOption =
     questions[id][options.filter((option) => option !== userOption)].text;
-  const userVotePercentage = Math.round((userVotesNum/totalVotes)*100);
-  const otherVotesPercentage = Math.round((otherVotesNum/totalVotes)*100);
+  const userVotePercentage = Math.round((userVotesNum / totalVotes) * 100);
+  const otherVotesPercentage = Math.round((otherVotesNum / totalVotes) * 100);
   return {
     poll: {
       name,
