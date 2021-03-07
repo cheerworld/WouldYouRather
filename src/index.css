@@ -96,7 +96,6 @@ code {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 40px;
 }
 
 .left {
@@ -132,6 +131,14 @@ div.custompb {
   text-align: left;
   padding-left: 1ch;
   background-color: #dddddd;
+}
+
+.marginTopBtn {
+  margin-top: 30px;
+}
+
+.or {
+  margin: 10px;
 }
 
 @media (max-width: 800px) {

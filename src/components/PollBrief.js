@@ -24,12 +24,12 @@ class PollBrief extends Component {
               />
             </div>
             <div className="right">
-              <Card.Title>Would you rather</Card.Title>
+              <Card.Title as="h4">Would you rather</Card.Title>
               <Card.Text className="cardText">
                 ...{pollBrief.briefOption}...
               </Card.Text>
               <Link to={`questions/${this.props.id}`}>
-                <Button variant="success" type="submit">
+                <Button variant="outline-info" type="submit" block>
                   View Poll
                 </Button>
               </Link>

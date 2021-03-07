@@ -38,7 +38,7 @@ class AnsweredPoll extends Component {
                       </Badge>
                     </Card.Title>
 
-                    <p>{poll.userVotePercentage} is your votes Percentage.</p>
+                    <p>{poll.userVotePercentage}% is your votes Percentage.</p>
                     <ProgressBar>
                       <ProgressBar
                         variant="info"
@@ -68,7 +68,7 @@ class AnsweredPoll extends Component {
                       Would you rather {poll.otherOption}?
                     </Card.Title>
                     <p>
-                      {poll.otherVotesPercentage} is the other votes Percentage.
+                      {poll.otherVotesPercentage}% is the other votes Percentage.
                     </p>
                     <ProgressBar>
                       <ProgressBar

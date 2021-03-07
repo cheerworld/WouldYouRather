@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { savePollAnswer } from "../actions/shared";
+import Card from "react-bootstrap/Card";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
 class UnansweredPoll extends Component {
   state = {
@@ -33,29 +36,40 @@ class UnansweredPoll extends Component {
     console.log(this.props);
     const { name, avatar, option1, option2 } = this.props.poll;
     return (
-      <div className="Box2">
-        <h3>{name} asks: </h3>
-        <h4>Would you rather..</h4>
-        <form className="chooseAnswer" onSubmit={this.handleSubmit}>
-          <input
-            type="radio"
-            value="optionOne"
-            checked={this.state.option === "optionOne"}
-            onChange={this.handleChange}
-          />
-          {option1}
-
-          <input
-            type="radio"
-            value="optionTwo"
-            checked={this.state.option === "optionTwo"}
-            onChange={this.handleChange}
-          />
-          {option2}
-
-          <button type="submit">Submit</button>
-        </form>
-      </div>
+      <Card border="info" style={{ border: "2px solid" }}>
+        <Card.Header as="h4">{name} asks: </Card.Header>
+        <Card.Body className="pollBrief">
+          <div className="leftCenter">
+            <Card.Img src={avatar} alt={name} className="pollAvatar" />
+          </div>
+          <div className="right">
+            <Card.Title as="h4">Would you rather...</Card.Title>
+            <Form className="chooseAnswer" onSubmit={this.handleSubmit}>
+              <Form.Group>
+                <Form.Check
+                  as="input"
+                  type="radio"
+                  value="optionOne"
+                  checked={this.state.option === "optionOne"}
+                  onChange={this.handleChange}
+                />
+                {option1}
+                <Form.Check
+                  as="input"
+                  type="radio"
+                  value="optionTwo"
+                  checked={this.state.option === "optionTwo"}
+                  onChange={this.handleChange}
+                />
+                {option2}
+              </Form.Group>
+              <Button variant="success" type="submit">
+                Submit
+              </Button>
+            </Form>
+          </div>
+        </Card.Body>
+      </Card>
     );
   }
 }
