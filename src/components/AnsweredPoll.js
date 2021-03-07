@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import Card from "react-bootstrap/Card";
 import CardColumns from "react-bootstrap/CardColumns";
 import ProgressBar from "react-bootstrap/ProgressBar";
+import Badge from 'react-bootstrap/Badge'
 
 class AnsweredPoll extends Component {
   render() {
@@ -28,7 +29,14 @@ class AnsweredPoll extends Component {
               <CardColumns className="right">
                 <Card border="success" className="yourAnswer">
                   <Card.Body>
-                    <Card.Title>Would you rather {poll.userAnswer}?</Card.Title>
+                    <Card.Title>Would you rather {poll.userAnswer}?
+                    <Badge pill variant="warning" className="indicator">
+                     Your
+                     <br/>
+                     Vote
+                    </Badge>
+                    </Card.Title>
+
                     <p>{poll.userVotePercentage} is your votes Percentage.</p>
                     <ProgressBar
                       variant="info"

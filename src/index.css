@@ -120,3 +120,7 @@ div.progress-bar.bg-info {
   width: 50%;
   margin-right: 30px;
 }
+
+.indicator {
+  border-radius: 50px;
+}
