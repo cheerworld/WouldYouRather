@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import Card from "react-bootstrap/Card";
 import CardColumns from "react-bootstrap/CardColumns";
 import ProgressBar from "react-bootstrap/ProgressBar";
-import Badge from 'react-bootstrap/Badge'
+import Badge from "react-bootstrap/Badge";
 
 class AnsweredPoll extends Component {
   render() {
@@ -14,9 +14,9 @@ class AnsweredPoll extends Component {
     return (
       <div>
         <Card border="info" style={{ border: "2px solid" }}>
+          <Card.Header as="h4">Asked by {poll.name}</Card.Header>
           <Card.Body className="pollBrief">
             <div className="leftCenter">
-              <Card.Title>Asked by {poll.name}</Card.Title>
               <Card.Img
                 variant="bottom"
                 src={poll.avatar}
@@ -25,24 +25,38 @@ class AnsweredPoll extends Component {
               />
             </div>
             <div>
-              <h5>Results:</h5>
               <CardColumns className="right">
+                <h5>Results:</h5>
                 <Card border="success" className="yourAnswer">
                   <Card.Body>
-                    <Card.Title>Would you rather {poll.userAnswer}?
-                    <Badge pill variant="warning" className="indicator">
-                     Your
-                     <br/>
-                     Vote
-                    </Badge>
+                    <Card.Title>
+                      Would you rather {poll.userAnswer}?
+                      <Badge pill variant="warning" className="indicator">
+                        Your
+                        <br />
+                        Vote
+                      </Badge>
                     </Card.Title>
 
                     <p>{poll.userVotePercentage} is your votes Percentage.</p>
-                    <ProgressBar
-                      variant="info"
-                      now={poll.userVotePercentage}
-                      label={`${poll.userVotePercentage}%`}
-                    />
+                    <ProgressBar>
+                      <ProgressBar
+                        variant="info"
+                        now={poll.userVotePercentage}
+                        label={
+                          poll.userVotePercentage >= 10
+                            ? `${poll.userVotePercentage}%`
+                            : ""
+                        }
+                      />
+                      {poll.userVotePercentage < 10 && (
+                        <ProgressBar
+                          now={100.0 - poll.userVotePercentage}
+                          label={`${poll.userVotePercentage}%`}
+                          className="custompb"
+                        />
+                      )}
+                    </ProgressBar>
                     <Card.Text>
                       {poll.userVotesNum} out of {poll.totalVotes} {vote}
                     </Card.Text>
@@ -56,11 +70,24 @@ class AnsweredPoll extends Component {
                     <p>
                       {poll.otherVotesPercentage} is the other votes Percentage.
                     </p>
-                    <ProgressBar
-                      variant="info"
-                      now={poll.otherVotesPercentage}
-                      label={`${poll.otherVotesPercentage}%`}
-                    />
+                    <ProgressBar>
+                      <ProgressBar
+                        variant="info"
+                        now={poll.otherVotesPercentage}
+                        label={
+                          poll.otherVotesPercentage >= 10
+                            ? `${poll.otherVotesPercentage}%`
+                            : ""
+                        }
+                      />
+                      {poll.otherVotesPercentage < 10 && (
+                        <ProgressBar
+                          now={100.0 - poll.otherVotesPercentage}
+                          label={`${poll.otherVotesPercentage}%`}
+                          className="custompb"
+                        />
+                      )}
+                    </ProgressBar>
                     <Card.Text>
                       {poll.otherVotesNum} out of {poll.totalVotes} {vote}
                     </Card.Text>

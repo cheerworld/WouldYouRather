@@ -39,6 +39,7 @@ code {
 .pollBrief {
   display: flex;
   flex-direction: row;
+  padding: 25px 35px;
 }
 
 .leaderBoard {
@@ -95,6 +96,7 @@ code {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-left: 40px;
 }
 
 .left {
@@ -109,18 +111,33 @@ code {
   background-color: #fbeeac;
 }
 
-div.progress-bar.bg-info {
-  min-width: 4ch;
-}
-
 .leftCenter {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 50%;
   margin-right: 30px;
 }
 
 .indicator {
-  border-radius: 50px;
+  border-radius: 50%;
+  padding: .6rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+}
+
+div.custompb {
+  color: black;
+  text-align: left;
+  padding-left: 1ch;
+  background-color: #dddddd;
+}
+
+@media (max-width: 800px) {
+  .pollBrief {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }

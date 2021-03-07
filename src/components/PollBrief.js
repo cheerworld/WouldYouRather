@@ -13,9 +13,9 @@ class PollBrief extends Component {
     return (
       <div className="Box1 poll">
         <Card>
+          <Card.Header as="h4">{pollBrief.name} asks:</Card.Header>
           <Card.Body className="pollBrief">
             <div className="left">
-              <h4>{pollBrief.name} asks:</h4>
               <Image
                 src={pollBrief.avatar}
                 alt={pollBrief.name}
@@ -25,7 +25,9 @@ class PollBrief extends Component {
             </div>
             <div className="right">
               <Card.Title>Would you rather</Card.Title>
-              <Card.Text className="cardText">...{pollBrief.briefOption}...</Card.Text>
+              <Card.Text className="cardText">
+                ...{pollBrief.briefOption}...
+              </Card.Text>
               <Link to={`questions/${this.props.id}`}>
                 <Button variant="success" type="submit">
                   View Poll
