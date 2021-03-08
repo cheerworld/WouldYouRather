@@ -7,13 +7,16 @@ import {
 
 import { getQuestions, saveQuestion, addQuestion } from "./questions";
 import { getUsers, saveUserAnswer, addPollToUser } from "./users";
+import { showLoading, hideLoading } from "react-redux-loading";
 
 export function handleInitialData() {
   return (dispatch) => {
+    dispatch(showLoading());
     return Promise.all([_getUsers(), _getQuestions()])
       .then(([users, questions]) => {
         dispatch(getQuestions(questions));
         dispatch(getUsers(users));
+        dispatch(hideLoading());
       })
       .catch((e) => {
         console.warn("Error in handleInitialData: ", e);
@@ -26,7 +29,9 @@ export function savePollAnswer(info) {
   return (dispatch) => {
     dispatch(saveQuestion(info));
     dispatch(saveUserAnswer(info));
+    dispatch(showLoading());
     return _saveQuestionAnswer(info)
+    .then(() => dispatch(hideLoading()))
     .catch((e) => {
       console.warn("Error in savePollAnswer: ", e);
       alert("There was an error in saving poll answer. Try again.");
@@ -36,10 +41,12 @@ export function savePollAnswer(info) {
 
 export function addPollToStore(info) {
   return (dispatch) => {
+    dispatch(showLoading());
     return _saveQuestion(info)
       .then((poll) => {
         dispatch(addQuestion(poll));
         dispatch(addPollToUser(poll));
+        dispatch(hideLoading())
       })
       .catch((e) => {
         console.warn("Error in addPollToStore: ", e);

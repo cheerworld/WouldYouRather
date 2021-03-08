@@ -9,6 +9,7 @@ import LeaderBoard from "./LeaderBoard";
 import NewPoll from "./NewPoll";
 import NavCompo from "./NavCompo";
 import Container from "react-bootstrap/Container";
+import LoadingBar from "react-redux-loading";
 
 class App extends Component {
   componentDidMount() {
@@ -18,20 +19,21 @@ class App extends Component {
     return (
       <Router>
         <Container>
-          <div className="App">
+          <LoadingBar />
+          <div className="App" className="margins">
             <NavCompo />
-            {this.props.authedUser === null ? (
-              <SignIn />
-            ) : (
-              <div>
-                <Switch>
-                  <Route path="/" exact component={PollList} />
-                  <Route path="/add" component={NewPoll} />
-                  <Route path="/leaderboard" component={LeaderBoard} />
-                  <Route path="/questions/:question_id" component={Poll} />
-                </Switch>
-              </div>
-            )}
+              {this.props.authedUser === null ? (
+                <SignIn />
+              ) : (
+                <div>
+                  <Switch>
+                    <Route path="/" exact component={PollList} />
+                    <Route path="/add" component={NewPoll} />
+                    <Route path="/leaderboard" component={LeaderBoard} />
+                    <Route path="/questions/:question_id" component={Poll} />
+                  </Switch>
+                </div>
+              )}
           </div>
         </Container>
       </Router>
