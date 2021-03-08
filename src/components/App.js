@@ -10,6 +10,7 @@ import NewPoll from "./NewPoll";
 import NavCompo from "./NavCompo";
 import Container from "react-bootstrap/Container";
 import LoadingBar from "react-redux-loading";
+import ErrorPage404 from "./ErrorPage404";
 
 class App extends Component {
   componentDidMount() {
@@ -28,9 +29,10 @@ class App extends Component {
                 <div>
                   <Switch>
                     <Route path="/" exact component={PollList} />
-                    <Route path="/add" component={NewPoll} />
-                    <Route path="/leaderboard" component={LeaderBoard} />
-                    <Route path="/questions/:question_id" component={Poll} />
+                    <Route path="/add" exact component={NewPoll} />
+                    <Route path="/leaderboard" exact component={LeaderBoard} />
+                    <Route path="/questions/:question_id" exact component={Poll} />
+                    <Route component={ErrorPage404} />
                   </Switch>
                 </div>
               )}

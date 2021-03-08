@@ -1,3 +1,7 @@
+.nav {
+  margin-bottom: 40px;
+}
+
 .showAfterLogin {
   display: flex;
   flex-direction: row;

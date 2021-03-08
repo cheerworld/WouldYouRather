@@ -13,7 +13,7 @@ class UserScore extends Component {
           <Card.Img src={user.avatar} alt={user.name} className="scoreAvatar" />
           <div className="userScoreColumn middle">
             <Card.Title as="h3">{user.name}</Card.Title>
-            <div className="twoScores">
+            <div>
               <div className="space topBorder">
                 <Card.Text>Answered Questions</Card.Text>
                 <Card.Text>{user.answeredQQ}</Card.Text>

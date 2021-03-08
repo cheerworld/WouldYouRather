@@ -2,14 +2,18 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import AnsweredPoll from "./AnsweredPoll";
 import UnansweredPoll from "./UnansweredPoll";
+import ErrorPage404 from "./ErrorPage404";
 
 class Poll extends Component {
   render() {
     console.log(this.props);
-    const { userVoteOrNot, id } = this.props;
+    const { userVoteOrNot, id, questions } = this.props;
+    if (!questions[id]) {
+      return (<ErrorPage404 />);
+    }
     return (
       <div className="Box1">
-        {userVoteOrNot ? <AnsweredPoll id={id} /> : <UnansweredPoll id={id} />}
+        {userVoteOrNot? <AnsweredPoll id={id} /> : <UnansweredPoll id={id} />}
       </div>
     );
   }
@@ -23,6 +27,7 @@ function mapStateToProps({ users, questions, authedUser }, props) {
 
   return {
     id,
+    questions,
     userVoteOrNot,
   };
 }
