@@ -45,6 +45,7 @@ code {
 .leaderBoard {
   display: flex;
   justify-content: center;
+  margin-bottom: 200px;
 }
 
 .score {
@@ -55,16 +56,15 @@ code {
 .scoreDetail {
   display: flex;
   flex-direction: row;
-  border-radius: 25px;
   border: 2px solid;
-  padding: 25px;
   margin: 10px;
 }
 
 .userScoreColumn {
   display: flex;
   flex-direction: column;
-  margin: 0 40px;
+  margin: 0 20px;
+  justify-content: space-around;
 }
 
 .option-length {
@@ -141,10 +141,62 @@ div.custompb {
   margin: 10px;
 }
 
+.scoreAvatar {
+  width: 130px;
+  height: 180px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.scoreCircle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scoreSize {
+  font-size: 30px;
+  border-radius: 50%;
+  padding: 10px 16px;
+}
+
+.above10 {
+  font-size: 30px;
+  border-radius: 50%;
+  padding: 7px 7px;
+}
+
+.space {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 11px;
+}
+
+.middle {
+  width: 250px;
+}
+
+.twoScores {
+
+}
+
+.topBorder {
+  border-bottom: 1px solid lightgrey;
+}
+
 @media (max-width: 800px) {
   .pollBrief {
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+  }
+
+  .row {
+    flex-direction: column;
     align-items: center;
   }
 }

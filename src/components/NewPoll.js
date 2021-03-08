@@ -66,7 +66,7 @@ class NewPoll extends Component {
                 <Form.Text className="option-length">{option1Left}</Form.Text>
               )}
               <Card.Text as="h5" className="text-center or">
-                Or
+                OR
               </Card.Text>
               <Form.Control
                 type="text"

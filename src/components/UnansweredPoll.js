@@ -52,16 +52,16 @@ class UnansweredPoll extends Component {
                   value="optionOne"
                   checked={this.state.option === "optionOne"}
                   onChange={this.handleChange}
+                  label={option1}
                 />
-                {option1}
                 <Form.Check
                   as="input"
                   type="radio"
                   value="optionTwo"
                   checked={this.state.option === "optionTwo"}
                   onChange={this.handleChange}
+                  label={option2}
                 />
-                {option2}
               </Form.Group>
               <Button variant="success" type="submit">
                 Submit
