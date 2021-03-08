@@ -27,8 +27,8 @@ class SignIn extends Component {
   };
 
   render() {
-    const users = this.props.usersId;
-    console.log(users);
+    const { users, usersId } = this.props;
+    console.log(this.props);
     return (
       <div className="Box1">
         <Form as="form" className="Box2" onSubmit={this.handleSubmit}>
@@ -44,10 +44,10 @@ class SignIn extends Component {
               <option disabled value="select" hidden>
                 Select user
               </option>
-              {users.map((user) => {
+              {usersId.map((user) => {
                 return (
                   <option key={user} value={user}>
-                    {user}
+                    {users[user].name}
                   </option>
                 );
               })}
@@ -70,6 +70,7 @@ function mapStateToProps({ users, authedUser }) {
   return {
     authedUser,
     usersId: Object.keys(users),
+    users,
   };
 }
 

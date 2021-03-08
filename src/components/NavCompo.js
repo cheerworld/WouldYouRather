@@ -38,7 +38,7 @@ function NavCompo(props) {
         <Navbar.Text>
           {props.authedUser !== null ? (
             <div className="showAfterLogin">
-              <div className="hiUser">Hi {props.authedUser}</div>
+              <div className="hiUser">Hi, {props.userName}</div>
               <Image
                 src={props.avatar}
                 alt={props.authedUser}
@@ -57,8 +57,10 @@ function NavCompo(props) {
 }
 
 function mapStateToProps({ users, authedUser }) {
+  const userName = authedUser ? users[authedUser].name : null;
   return {
     authedUser,
+    userName,
     avatar: authedUser ? users[authedUser].avatarURL : null,
   };
 }

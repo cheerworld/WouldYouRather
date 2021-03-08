@@ -27,7 +27,9 @@ class PollList extends Component {
           <div className="viewQList">
             <ButtonGroup size="lg">
               <Button
-                variant="outline-info"
+                variant={
+                  this.state.list === "unanswered" ? "info" : "outline-info"
+                }
                 type="submit"
                 value="unanswered"
                 onClick={this.handleChange}
@@ -35,7 +37,9 @@ class PollList extends Component {
                 Unanswered Questions
               </Button>
               <Button
-                variant="outline-info"
+                variant={
+                  this.state.list === "answered" ? "info" : "outline-info"
+                }
                 type="submit"
                 value="answered"
                 onClick={this.handleChange}
@@ -73,3 +77,6 @@ function mapStateToProps({ users, questions, authedUser }) {
 }
 
 export default connect(mapStateToProps)(PollList);
+/*
+
+*/

@@ -188,6 +188,10 @@ div.custompb {
   border-bottom: 1px solid lightgrey;
 }
 
+.tab {
+  font-size: 1px;
+}
+
 @media (max-width: 800px) {
   .pollBrief {
     flex-direction: column;
