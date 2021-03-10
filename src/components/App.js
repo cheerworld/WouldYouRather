@@ -11,6 +11,7 @@ import NavCompo from "./NavCompo";
 import Container from "react-bootstrap/Container";
 import LoadingBar from "react-redux-loading";
 import ErrorPage404 from "./ErrorPage404";
+import "../CSS/App.css";
 
 class App extends Component {
   componentDidMount() {
@@ -21,21 +22,25 @@ class App extends Component {
       <Router>
         <Container>
           <LoadingBar />
-          <div className="App" className="margins">
+          <div className="App">
             <NavCompo />
-              {this.props.authedUser === null ? (
-                <SignIn />
-              ) : (
-                <div>
-                  <Switch>
-                    <Route path="/" exact component={PollList} />
-                    <Route path="/add" exact component={NewPoll} />
-                    <Route path="/leaderboard" exact component={LeaderBoard} />
-                    <Route path="/questions/:question_id" exact component={Poll} />
-                    <Route component={ErrorPage404} />
-                  </Switch>
-                </div>
-              )}
+            {this.props.authedUser === null ? (
+              <SignIn />
+            ) : (
+              <div>
+                <Switch>
+                  <Route path="/" exact component={PollList} />
+                  <Route path="/add" exact component={NewPoll} />
+                  <Route path="/leaderboard" exact component={LeaderBoard} />
+                  <Route
+                    path="/questions/:question_id"
+                    exact
+                    component={Poll}
+                  />
+                  <Route component={ErrorPage404} />
+                </Switch>
+              </div>
+            )}
           </div>
         </Container>
       </Router>
@@ -43,7 +48,7 @@ class App extends Component {
   }
 }
 
-function mapStateToProps({ authedUser, questions, users }) {
+function mapStateToProps({ authedUser }) {
   return {
     authedUser,
   };

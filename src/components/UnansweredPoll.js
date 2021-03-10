@@ -44,7 +44,7 @@ class UnansweredPoll extends Component {
           </div>
           <div className="right">
             <Card.Title as="h4">Would you rather...</Card.Title>
-            <Form className="chooseAnswer" onSubmit={this.handleSubmit}>
+            <Form onSubmit={this.handleSubmit}>
               <Form.Group>
                 <Form.Check
                   as="input"

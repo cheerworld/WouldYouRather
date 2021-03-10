@@ -12,13 +12,11 @@ class AnsweredPoll extends Component {
     const vote = poll.totalVotes === 1 ? " vote" : " votes";
 
     return (
-      <div>
         <Card border="info" style={{ border: "2px solid" }}>
           <Card.Header as="h4">Asked by {poll.name}</Card.Header>
           <Card.Body className="pollBrief">
             <div className="leftCenter">
               <Card.Img
-                variant="bottom"
                 src={poll.avatar}
                 alt={poll.name}
                 className="pollAvatar"
@@ -38,7 +36,7 @@ class AnsweredPoll extends Component {
                       </Badge>
                     </Card.Title>
 
-                    <p>{poll.userVotePercentage}% is your votes Percentage.</p>
+                    <Card.Text>{poll.userVotePercentage}% is your votes Percentage.</Card.Text>
                     <ProgressBar>
                       <ProgressBar
                         variant="info"
@@ -67,9 +65,9 @@ class AnsweredPoll extends Component {
                     <Card.Title>
                       Would you rather {poll.otherOption}?
                     </Card.Title>
-                    <p>
+                    <Card.Text>
                       {poll.otherVotesPercentage}% is the other votes Percentage.
-                    </p>
+                    </Card.Text>
                     <ProgressBar>
                       <ProgressBar
                         variant="info"
@@ -97,7 +95,6 @@ class AnsweredPoll extends Component {
             </div>
           </Card.Body>
         </Card>
-      </div>
     );
   }
 }
@@ -107,16 +104,13 @@ function mapStateToProps({ users, questions, authedUser }, { id }) {
   const name = users[questions[id].author].name;
   const avatar = users[questions[id].author].avatarURL;
   const userOption = users[authedUser].answers[id];
+  const otherOptionFilter = questions[id][options.filter((option) => option !== userOption)];
   const userVotesNum =
-    questions[id][users[authedUser].answers[id]].votes.length;
-  const otherVotesNum =
-    questions[id][options.filter((option) => option !== userOption)].votes
-      .length;
+    questions[id][userOption].votes.length;
+  const otherVotesNum = otherOptionFilter.votes.length;
   const totalVotes = userVotesNum + otherVotesNum;
-
-  const userAnswer = questions[id][users[authedUser].answers[id]].text;
-  const otherOption =
-    questions[id][options.filter((option) => option !== userOption)].text;
+  const userAnswer = questions[id][userOption].text;
+  const otherOption = otherOptionFilter.text;
   const userVotePercentage = Math.round((userVotesNum / totalVotes) * 100);
   const otherVotesPercentage = Math.round((otherVotesNum / totalVotes) * 100);
   return {

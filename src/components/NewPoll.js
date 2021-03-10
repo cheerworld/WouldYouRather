@@ -4,6 +4,7 @@ import { addPollToStore } from "../actions/shared";
 import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import "../CSS/NewPoll.css";
 
 class NewPoll extends Component {
   state = {
@@ -49,11 +50,7 @@ class NewPoll extends Component {
           <Card.Body>
             <Card.Text>Complete the question:</Card.Text>
             <Card.Title as="h4">Would you rather...</Card.Title>
-            <Form.Group
-              as="form"
-              className="addPoll"
-              onSubmit={this.handleSubmit}
-            >
+            <Form.Group as="form" onSubmit={this.handleSubmit}>
               <Form.Control
                 type="text"
                 name="optionOne"

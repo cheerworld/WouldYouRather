@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import UserScore from "./UserScore";
+import "../CSS/LeaderBoard.css";
 
 class LeaderBoard extends Component {
   render() {

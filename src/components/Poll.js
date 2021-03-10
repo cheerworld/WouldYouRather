@@ -9,18 +9,17 @@ class Poll extends Component {
     console.log(this.props);
     const { userVoteOrNot, id, questions } = this.props;
     if (!questions[id]) {
-      return (<ErrorPage404 />);
+      return <ErrorPage404 />;
     }
     return (
       <div className="Box1">
-        {userVoteOrNot? <AnsweredPoll id={id} /> : <UnansweredPoll id={id} />}
+        {userVoteOrNot ? <AnsweredPoll id={id} /> : <UnansweredPoll id={id} />}
       </div>
     );
   }
 }
 
 function mapStateToProps({ users, questions, authedUser }, props) {
-  console.log(props);
   const id = props.match.params.question_id;
   const userAnsweredPoll = Object.keys(users[authedUser].answers);
   const userVoteOrNot = userAnsweredPoll.includes(id);

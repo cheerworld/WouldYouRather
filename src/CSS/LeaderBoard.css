@@ -1,0 +1,74 @@
+
+.leaderBoard {
+  display: flex;
+  justify-content: center;
+}
+
+.score {
+  display: flex;
+  flex-direction: column;
+}
+
+.scoreDetail {
+  display: flex;
+  flex-direction: row;
+  border: 2px solid;
+  margin: 10px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.scoreAvatar {
+  width: 130px;
+  height: 180px;
+}
+
+.userScoreColumn {
+  display: flex;
+  flex-direction: column;
+  margin: 0 20px;
+  justify-content: space-around;
+}
+
+.middle {
+  width: 250px;
+}
+
+.space {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 11px;
+}
+
+.topBorder {
+  border-bottom: 1px solid lightgrey;
+}
+
+.scoreCircle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scoreSize {
+  font-size: 30px;
+  border-radius: 50%;
+  padding: 10px 16px;
+}
+
+.above10 {
+  font-size: 30px;
+  border-radius: 50%;
+  padding: 7px 7px;
+}
+
+@media (max-width: 800px) {
+  .row {
+    flex-direction: column;
+    align-items: center;
+  }
+}

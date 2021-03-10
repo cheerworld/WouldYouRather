@@ -4,15 +4,15 @@ import { Link } from "react-router-dom";
 import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import "../CSS/Home.css";
 
 class PollBrief extends Component {
   render() {
     console.log(this.props);
-    const { pollBrief } = this.props;
+    const { pollBrief, id } = this.props;
 
     return (
-      <div className="Box1 poll">
-        <Card>
+        <Card className="Box1 poll">
           <Card.Header as="h4">{pollBrief.name} asks:</Card.Header>
           <Card.Body className="pollBrief">
             <div className="left">
@@ -28,15 +28,12 @@ class PollBrief extends Component {
               <Card.Text className="cardText">
                 ...{pollBrief.briefOption}...
               </Card.Text>
-              <Link to={`questions/${this.props.id}`}>
-                <Button variant="outline-info" type="submit" block>
+                <Button as={Link} to={`questions/${id}`} variant="outline-info" type="submit" block>
                   View Poll
                 </Button>
-              </Link>
             </div>
           </Card.Body>
         </Card>
-      </div>
     );
   }
 }
@@ -44,12 +41,10 @@ class PollBrief extends Component {
 function mapStateToProps({ users, questions, authedUser }, { id }) {
   const name = users[questions[id].author].name;
   const avatar = users[questions[id].author].avatarURL;
-  const timestamp = questions[id].timestamp;
   const briefOption = questions[id].optionOne.text.substring(0, 25);
   const pollBrief = {
     name,
     avatar,
-    timestamp,
     briefOption,
   };
 

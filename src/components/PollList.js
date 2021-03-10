@@ -12,42 +12,35 @@ class PollList extends Component {
   handleChange = (e) => {
     e.preventDefault();
     const list = e.target.value;
-    console.log(list);
     this.setState(() => ({
       list,
     }));
   };
 
   render() {
-    console.log(this.props.unansweredIdList);
-    console.log(this.props.answeredIdList);
     return (
       <div className="Box1">
         <div className="Box2">
-          <div className="viewQList">
-            <ButtonGroup size="lg">
-              <Button
-                variant={
-                  this.state.list === "unanswered" ? "info" : "outline-info"
-                }
-                type="submit"
-                value="unanswered"
-                onClick={this.handleChange}
-              >
-                Unanswered Questions
-              </Button>
-              <Button
-                variant={
-                  this.state.list === "answered" ? "info" : "outline-info"
-                }
-                type="submit"
-                value="answered"
-                onClick={this.handleChange}
-              >
-                Answered Questions
-              </Button>
-            </ButtonGroup>
-          </div>
+          <ButtonGroup size="lg">
+            <Button
+              variant={
+                this.state.list === "unanswered" ? "info" : "outline-info"
+              }
+              type="submit"
+              value="unanswered"
+              onClick={this.handleChange}
+            >
+              Unanswered Questions
+            </Button>
+            <Button
+              variant={this.state.list === "answered" ? "info" : "outline-info"}
+              type="submit"
+              value="answered"
+              onClick={this.handleChange}
+            >
+              Answered Questions
+            </Button>
+          </ButtonGroup>
           {this.state.list === "unanswered"
             ? this.props.unansweredIdList.map((id) => (
                 <PollBrief key={id} id={id} />
@@ -77,6 +70,3 @@ function mapStateToProps({ users, questions, authedUser }) {
 }
 
 export default connect(mapStateToProps)(PollList);
-/*
-
-*/

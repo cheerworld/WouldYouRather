@@ -34,7 +34,7 @@ class SignIn extends Component {
         <Form as="form" className="Box2" onSubmit={this.handleSubmit}>
           <h3>Welcome to Would You Rather App</h3>
           <p>Please sign in to continue</p>
-          <Form.Group controlId="Select">
+          <Form.Group>
             <Form.Label as="h3">Sign In</Form.Label>
             <Form.Control
               as="select"

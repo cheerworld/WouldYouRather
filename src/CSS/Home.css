@@ -1,0 +1,65 @@
+
+.Box1.poll {
+  margin: 10px 0;
+  padding-bottom: 20px;
+}
+
+.pollBrief {
+  display: flex;
+  flex-direction: row;
+  padding: 25px 35px;
+}
+
+.left {
+  padding-right: 45px;
+}
+
+.pollAvatar {
+  width: 220px;
+  height: 300px;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cardText {
+  min-width: 31ch;
+}
+
+.leftCenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 30px;
+}
+
+.yourAnswer {
+  background-color: #fbeeac;
+}
+
+.indicator {
+  border-radius: 50%;
+  padding: .6rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+}
+
+div.custompb {
+  color: black;
+  text-align: left;
+  padding-left: 1ch;
+  background-color: #dddddd;
+}
+
+@media (max-width: 800px) {
+  .pollBrief {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
