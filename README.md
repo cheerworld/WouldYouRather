@@ -25,7 +25,7 @@ The `_DATA.js` file represents a fake database and methods that let you access t
 
 To get started developing right away:
 
-* install all project dependencies with `npm/yarn install`
+* install all project dependencies with `npm install/yarn add`
 * start the development server with `npm/yarn start`
 
 ## Data
