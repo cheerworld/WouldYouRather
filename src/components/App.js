@@ -67,8 +67,13 @@ function mapStateToProps({ authedUser }) {
   };
 }
 
+
 App.propTypes = {
-  authedUser: PropTypes.string.isRequired,
+  authedUser: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.instanceOf(null),
+  ]),
+  dispatch: PropTypes.func.isRequired,
 }
 
 export default connect(mapStateToProps)(App);

@@ -74,9 +74,10 @@ function mapStateToProps({ users, authedUser }) {
 }
 
 NavCompo.propTypes = {
-  authedUser: PropTypes.string.isRequired,
-  userName: PropTypes.string.isRequired,
-  avatar: PropTypes.string.isRequired,
+  authedUser: PropTypes.string,
+  userName: PropTypes.string,
+  avatar: PropTypes.string,
+  dispatch: PropTypes.func.isRequired,
 }
 
 

@@ -5,6 +5,7 @@ import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import "../CSS/Home.css";
+import PropTypes from "prop-types";
 
 class PollBrief extends Component {
   render() {
@@ -51,6 +52,10 @@ function mapStateToProps({ users, questions, authedUser }, { id }) {
   return {
     pollBrief,
   };
+}
+
+PollBrief.propTypes = {
+  pollBrief: PropTypes.object.isRequired,
 }
 
 export default connect(mapStateToProps)(PollBrief);

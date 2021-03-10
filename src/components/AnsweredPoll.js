@@ -4,6 +4,7 @@ import Card from "react-bootstrap/Card";
 import CardColumns from "react-bootstrap/CardColumns";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import Badge from "react-bootstrap/Badge";
+import PropTypes from "prop-types";
 
 class AnsweredPoll extends Component {
   render() {
@@ -127,4 +128,9 @@ function mapStateToProps({ users, questions, authedUser }, { id }) {
     },
   };
 }
+
+AnsweredPoll.propTypes = {
+  poll: PropTypes.object.isRequired,
+}
+
 export default connect(mapStateToProps)(AnsweredPoll);

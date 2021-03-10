@@ -2,10 +2,11 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import UserScore from "./UserScore";
 import "../CSS/LeaderBoard.css";
+import PropTypes from "prop-types";
 
 class LeaderBoard extends Component {
   render() {
-    console.log(this.props.ids);
+    console.log(this.props);
     return (
       <div className="leaderBoard">
         <div className="score">
@@ -27,6 +28,10 @@ function mapStateToProps({ users }) {
         (Object.keys(users[a].answers).length + users[a].questions.length)
     ),
   };
+}
+
+LeaderBoard.propTypes = {
+  ids: PropTypes.array.isRequired,
 }
 
 export default connect(mapStateToProps)(LeaderBoard);

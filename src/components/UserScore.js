@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Card from "react-bootstrap/Card";
 import Badge from "react-bootstrap/Badge";
+import PropTypes from "prop-types";
 
 class UserScore extends Component {
   render() {
@@ -58,6 +59,10 @@ function mapStateToProps({ users }, { id }) {
       score,
     },
   };
+}
+
+UserScore.propTypes = {
+  user: PropTypes.object.isRequired,
 }
 
 export default connect(mapStateToProps)(UserScore);

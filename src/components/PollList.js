@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import PollBrief from "./PollBrief";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Button from "react-bootstrap/Button";
+import PropTypes from "prop-types";
 
 class PollList extends Component {
   state = {
@@ -67,6 +68,11 @@ function mapStateToProps({ users, questions, authedUser }) {
       (a, b) => questions[b].timestamp - questions[a].timestamp
     ),
   };
+}
+
+PollList.propTypes = {
+  answeredIdList: PropTypes.array.isRequired,
+  unansweredIdList: PropTypes.array.isRequired,
 }
 
 export default connect(mapStateToProps)(PollList);

@@ -5,6 +5,7 @@ import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "../CSS/NewPoll.css";
+import PropTypes from "prop-types";
 
 class NewPoll extends Component {
   state = {
@@ -99,4 +100,11 @@ function mapStateToProps({ authedUser }) {
     authedUser,
   };
 }
+
+NewPoll.propTypes = {
+  authedUser: PropTypes.string.isRequired,
+  dispatch: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired,
+}
+
 export default connect(mapStateToProps)(NewPoll);

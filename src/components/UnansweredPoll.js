@@ -4,6 +4,7 @@ import { savePollAnswer } from "../actions/shared";
 import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import PropTypes from "prop-types";
 
 class UnansweredPoll extends Component {
   state = {
@@ -88,6 +89,13 @@ function mapStateToProps({ users, questions, authedUser }, { id }) {
       option2,
     },
   };
+}
+
+UnansweredPoll.propTypes = {
+  id: PropTypes.string.isRequired,
+  authedUser: PropTypes.string.isRequired,
+  poll: PropTypes.object.isRequired,
+  dispatch: PropTypes.func.isRequired,
 }
 
 export default connect(mapStateToProps)(UnansweredPoll);

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { setAuthedUser } from "../actions/authedUser";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import PropTypes from "prop-types";
 
 class SignIn extends Component {
   state = {
@@ -66,12 +67,17 @@ class SignIn extends Component {
   }
 }
 
-function mapStateToProps({ users, authedUser }) {
+function mapStateToProps({ users }) {
   return {
-    authedUser,
     usersId: Object.keys(users),
     users,
   };
+}
+
+SignIn.propTypes = {
+  usersId: PropTypes.array.isRequired,
+  users: PropTypes.object.isRequired,
+  dispatch: PropTypes.func.isRequired,
 }
 
 export default connect(mapStateToProps)(SignIn);
