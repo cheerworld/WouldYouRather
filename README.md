@@ -7,16 +7,16 @@ The `_DATA.js` file represents a fake database and methods that let you access t
 ## App view
 
 ![Would You Rather App Sign In View](./WebImage/ss.PNG)
-Sign In View
+### Sign In View
 
 ![Home View](./WebImage/aa.PNG)
-Home View
+### Home View
 
 ![New Question View](./WebImage/dd.PNG)
-New Question View
+### New Question View
 
 ![Leader Board View](./WebImage/ff.PNG)
-Leader Board View
+### Leader Board View
 
 
 ## Get Started
