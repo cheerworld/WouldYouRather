@@ -1,15 +1,23 @@
 # Would You Rather Project
 
-This is the project for Udacity's React & Redux course. I build a React/Redux front end for the application. I used [Create React App](https://github.com/facebook/create-react-app) and [React-bootstrap](https://react-bootstrap.github.io/) to bootstrap this project. 
+This is the project for Udacity's React & Redux course. I build a React/Redux front end for the application. I used [Create React App](https://github.com/facebook/create-react-app) and [React-bootstrap](https://react-bootstrap.github.io/) to bootstrap this project.
 
 The `_DATA.js` file represents a fake database and methods that let you access the data.
 
 ## App view
 
 ![Would You Rather App Sign In View](./WebImage/ss.PNG)
+Sign In View
+
 ![Home View](./WebImage/aa.PNG)
+Home View
+
 ![New Question View](./WebImage/dd.PNG)
-![Leader Board View](./WebImage/ff.PNG))
+New Question View
+
+![Leader Board View](./WebImage/ff.PNG)
+Leader Board View
+
 
 ## Get Started
 
