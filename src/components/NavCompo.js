@@ -33,6 +33,13 @@ function NavCompo(props) {
           >
             Leader Board
           </Nav.Link>
+          <Nav.Link
+            as={NavLink}
+            to="/doesNotExist"
+            activeClassName="active-nav-link"
+          >
+            404 Error
+          </Nav.Link>
         </Nav>
 
         <Navbar.Text>
