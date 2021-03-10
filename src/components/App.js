@@ -12,6 +12,7 @@ import Container from "react-bootstrap/Container";
 import LoadingBar from "react-redux-loading";
 import ErrorPage404 from "./ErrorPage404";
 import "../CSS/App.css";
+import PropTypes from "prop-types";
 
 class App extends Component {
   componentDidMount() {
@@ -65,4 +66,9 @@ function mapStateToProps({ authedUser }) {
     authedUser,
   };
 }
+
+App.propTypes = {
+  authedUser: PropTypes.string.isRequired,
+}
+
 export default connect(mapStateToProps)(App);

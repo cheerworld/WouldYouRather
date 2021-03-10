@@ -7,6 +7,7 @@ import Nav from "react-bootstrap/Nav";
 import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
 import "../CSS/nav.css";
+import PropTypes from "prop-types";
 
 function NavCompo(props) {
   const handleClick = (e) => {
@@ -71,5 +72,12 @@ function mapStateToProps({ users, authedUser }) {
     avatar: authedUser ? users[authedUser].avatarURL : null,
   };
 }
+
+NavCompo.propTypes = {
+  authedUser: PropTypes.string.isRequired,
+  userName: PropTypes.string.isRequired,
+  avatar: PropTypes.string.isRequired,
+}
+
 
 export default connect(mapStateToProps)(NavCompo);
