@@ -41,6 +41,18 @@ class App extends Component {
                 </Switch>
               </div>
             )}
+            <footer>
+              <p className="footerP">
+                <span role="img" aria-label="Tulip">
+                  🌷{" "}
+                </span>
+                Made by Yuguo Zhao
+                <span role="img" aria-label="Hibiscus">
+                  {" "}
+                  🌺
+                </span>
+              </p>
+            </footer>
           </div>
         </Container>
       </Router>

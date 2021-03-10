@@ -1,3 +1,16 @@
 .App {
   margin: 3px 0;
 }
+
+footer {
+  display: flex;
+  justify-content: center;
+  height: 100px;
+  margin: 40px;
+}
+
+.footerP {
+  font-size: 1rem;
+  color: #28527a;
+  padding-top: 20px;
+}
