@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { setAuthedUser } from "../actions/authedUser";
+import { handleCheckUserPassword } from "../actions/shared";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import PropTypes from "prop-types";
-import { checkUserPassword } from "../_DATA.js";
 
 class SignIn extends Component {
   state = {
@@ -25,27 +24,17 @@ class SignIn extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state.password);
     const {value, password} = this.state;
-    const { dispatch } = this.props;
     this.setState({
       value: "select",
-      password: "", 
+      password: "",
     });
-    checkUserPassword(value, password)
-    .then(() => {
-      console.log("matches");
-      dispatch(setAuthedUser(value));
-    })
-    .catch(() => {
-      console.log("fails");
-      alert("Wrong password, please try again!");
-    })
+    this.props.dispatch(handleCheckUserPassword(value, password));
   };
 
   render() {
     const { users, usersId } = this.props;
-    console.log(this.props);
+    //console.log(this.props);
     return (
       <div className="Box1">
         <Form as="form" className="Box2" onSubmit={this.handleSubmit}>
