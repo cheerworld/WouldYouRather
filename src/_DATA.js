@@ -1,3 +1,5 @@
+import { showLoading, hideLoading } from "react-redux-loading";
+
 let users = {
   sarahedo: {
     id: "sarahedo",
@@ -205,4 +207,19 @@ export function _saveQuestionAnswer({ authedUser, qid, answer }) {
       res();
     }, 500);
   });
+}
+
+
+export function checkUserPassword (userName, password) {
+  showLoading()
+  return new Promise((res, rej) => {
+    setTimeout(() => {
+      if (users[userName] && users[userName].password === password) {
+        res();
+      } else {
+        rej();
+      }
+    }, 1000);
+  })
+  .then(() => hideLoading())
 }

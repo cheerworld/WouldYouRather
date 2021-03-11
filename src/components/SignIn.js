@@ -4,6 +4,7 @@ import { setAuthedUser } from "../actions/authedUser";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import PropTypes from "prop-types";
+import { checkUserPassword } from "../_DATA.js";
 
 class SignIn extends Component {
   state = {
@@ -25,11 +26,21 @@ class SignIn extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     console.log(this.state.password);
-    const authedUser = this.state.value;
+    const {value, password} = this.state;
     const { dispatch } = this.props;
-    this.setState({ value: "select" });
-
-    dispatch(setAuthedUser(authedUser));
+    this.setState({
+      value: "select",
+      password: "", 
+    });
+    checkUserPassword(value, password)
+    .then(() => {
+      console.log("matches");
+      dispatch(setAuthedUser(value));
+    })
+    .catch(() => {
+      console.log("fails");
+      alert("Wrong password, please try again!");
+    })
   };
 
   render() {
