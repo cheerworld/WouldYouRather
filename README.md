@@ -6,18 +6,21 @@ The `_DATA.js` file represents a fake database and methods that let you access t
 
 ## App view
 
-![Would You Rather App Sign In View](./WebImage/ss.PNG)
+![Would You Rather App Sign In View](./WebImage/11.PNG)
 ### Sign In View
+I implement a simple password check input on the sign-in page, the password for all 3 users is "123456".
 
 ![Home View](./WebImage/aa.PNG)
 ### Home View
+You can click unanswered polls or answered polls buttons to see polls that are unanswered or answered. You can click the "view poll" button to see the details of each poll. For the unanswered poll, you can choose your answer and submit it, after submit, you will see the votes result for that poll. For the answered poll, you will just see the votes result for the poll.
 
 ![New Question View](./WebImage/dd.PNG)
 ### New Question View
+You can create your new poll by writing your option 1 and option 2. By submitting it, you will get a newly created poll and you can view it on the home page.
 
 ![Leader Board View](./WebImage/ff.PNG)
 ### Leader Board View
-
+You can see your score and other users' scores on the leader board. Users are ordered in descending order.
 
 ## Get Started
 

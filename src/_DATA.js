@@ -16,7 +16,7 @@ let users = {
   tylermcginnis: {
     id: "tylermcginnis",
     name: "Tyler McGinnis",
-    password: "poiuyt",
+    password: "123456",
     avatarURL: "/lion.jpg",
     answers: {
       vthrdm985a262al8qx3do: "optionOne",
@@ -27,7 +27,7 @@ let users = {
   johndoe: {
     id: "johndoe",
     name: "John Doe",
-    password: "zxcvbn",
+    password: "123456",
     avatarURL: "/dragon.jpg",
     answers: {
       xj352vofupe1dqz9emx13r: "optionOne",
