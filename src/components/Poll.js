@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 
 class Poll extends Component {
   render() {
-    console.log(this.props);
+    //console.log(this.props);
     const { userVoteOrNot, id, questions } = this.props;
     if (!questions[id]) {
       return <ErrorPage404 />;

@@ -9,7 +9,7 @@ import PropTypes from "prop-types";
 
 class PollBrief extends Component {
   render() {
-    console.log(this.props);
+    //console.log(this.props);
     const { pollBrief, id } = this.props;
 
     return (

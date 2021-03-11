@@ -13,7 +13,6 @@ class UnansweredPoll extends Component {
 
   handleChange = (e) => {
     const option = e.target.value;
-    console.log(option);
     this.setState(() => ({
       option,
     }));
@@ -22,7 +21,7 @@ class UnansweredPoll extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const option = this.state.option;
-    console.log(option);
+
     const { authedUser, id } = this.props;
     this.props.dispatch(
       savePollAnswer({
@@ -34,7 +33,7 @@ class UnansweredPoll extends Component {
   };
 
   render() {
-    console.log(this.props);
+    //console.log(this.props);
     const { name, avatar, option1, option2 } = this.props.poll;
     return (
       <Card border="info" style={{ border: "2px solid" }}>

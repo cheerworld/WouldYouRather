@@ -9,7 +9,7 @@ import PropTypes from "prop-types";
 class AnsweredPoll extends Component {
   render() {
     const { poll } = this.props;
-    console.log(this.props);
+    //console.log(this.props);
     const vote = poll.totalVotes === 1 ? " vote" : " votes";
 
     return (

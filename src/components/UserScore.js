@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 
 class UserScore extends Component {
   render() {
-    console.log(this.props);
+    //console.log(this.props);
     const { user } = this.props;
     return (
       <Card border="info" className="scoreDetail">

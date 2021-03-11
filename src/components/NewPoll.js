@@ -25,7 +25,7 @@ class NewPoll extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.props);
+    //console.log(this.props);
     const { optionOne, optionTwo } = this.state;
     const { authedUser, dispatch, history } = this.props;
     dispatch(

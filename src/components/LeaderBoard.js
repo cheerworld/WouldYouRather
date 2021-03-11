@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 
 class LeaderBoard extends Component {
   render() {
-    console.log(this.props);
+    //console.log(this.props);
     return (
       <div className="leaderBoard">
         <div className="score">
