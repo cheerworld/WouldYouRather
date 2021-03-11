@@ -8,18 +8,23 @@ import PropTypes from "prop-types";
 class SignIn extends Component {
   state = {
     value: "select",
+    password: "",
   };
 
   handleChange = (e) => {
-    const value = e.target.value;
+    const target = e.target;
+    const name = target.name;
+    const value = target.value;
 
-    this.setState(() => ({
-      value,
+    this.setState((preState) => ({
+      ...preState,
+      [name]: value,
     }));
   };
 
   handleSubmit = (e) => {
     e.preventDefault();
+    console.log(this.state.password);
     const authedUser = this.state.value;
     const { dispatch } = this.props;
     this.setState({ value: "select" });
@@ -39,6 +44,7 @@ class SignIn extends Component {
             <Form.Label as="h3">Sign In</Form.Label>
             <Form.Control
               as="select"
+              name="value"
               value={this.state.value}
               onChange={this.handleChange}
             >
@@ -54,10 +60,19 @@ class SignIn extends Component {
               })}
             </Form.Control>
           </Form.Group>
+          <Form.Group>
+            <Form.Control
+              type="password"
+              placeholder="Password"
+              name="password"
+              value={this.state.password}
+              onChange={this.handleChange}
+            />
+          </Form.Group>
           <Button
             variant="success"
             type="submit"
-            disabled={this.state.value === "select"}
+            disabled={this.state.value === "select" || this.state.password === ""}
           >
             Sign In
           </Button>

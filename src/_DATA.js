@@ -2,6 +2,7 @@ let users = {
   sarahedo: {
     id: "sarahedo",
     name: "Sarah Edo",
+    password: "123456",
     avatarURL: "/fish.jpg",
     answers: {
       "8xf0y6ziyjabvozdd253nd": "optionOne",
@@ -14,6 +15,7 @@ let users = {
   tylermcginnis: {
     id: "tylermcginnis",
     name: "Tyler McGinnis",
+    password: "poiuyt",
     avatarURL: "/lion.jpg",
     answers: {
       vthrdm985a262al8qx3do: "optionOne",
@@ -24,6 +26,7 @@ let users = {
   johndoe: {
     id: "johndoe",
     name: "John Doe",
+    password: "zxcvbn",
     avatarURL: "/dragon.jpg",
     answers: {
       xj352vofupe1dqz9emx13r: "optionOne",
