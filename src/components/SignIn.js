@@ -4,11 +4,13 @@ import { handleCheckUserPassword } from "../actions/shared";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import PropTypes from "prop-types";
+import Spinner from 'react-bootstrap/Spinner';
 
 class SignIn extends Component {
   state = {
     value: "select",
     password: "",
+    load: false,
   };
 
   handleChange = (e) => {
@@ -28,8 +30,10 @@ class SignIn extends Component {
     this.setState({
       value: "select",
       password: "",
+      load: true,
     });
-    this.props.dispatch(handleCheckUserPassword(value, password));
+    this.props.dispatch(handleCheckUserPassword(value, password))
+      .then(() => this.setState({load: false}));
   };
 
   render() {
@@ -74,7 +78,18 @@ class SignIn extends Component {
             type="submit"
             disabled={this.state.value === "select" || this.state.password === ""}
           >
-            Sign In
+          {this.state.load === true
+            ? (
+              <Spinner
+                as="span"
+                animation="border"
+                size="sm"
+                role="status"
+                aria-hidden="true"
+               />
+            )
+            : null}
+            {this.state.load === false ? "Sign In" : " Loading"}
           </Button>
         </Form>
       </div>
