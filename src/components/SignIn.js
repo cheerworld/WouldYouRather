@@ -10,7 +10,6 @@ class SignIn extends Component {
   state = {
     value: "select",
     password: "",
-    load: false,
   };
 
   handleChange = (e) => {
@@ -30,14 +29,12 @@ class SignIn extends Component {
     this.setState({
       value: "select",
       password: "",
-      load: true,
     });
-    this.props.dispatch(handleCheckUserPassword(value, password))
-      .then(() => this.setState({load: false}));
+    this.props.dispatch(handleCheckUserPassword(value, password));
   };
 
   render() {
-    const { users, usersId } = this.props;
+    const { users, usersId, isAuthenticating } = this.props;
     //console.log(this.props);
     return (
       <div className="Box1">
@@ -78,7 +75,7 @@ class SignIn extends Component {
             type="submit"
             disabled={this.state.value === "select" || this.state.password === ""}
           >
-          {this.state.load === true
+          {isAuthenticating
             ? (
               <Spinner
                 as="span"
@@ -89,7 +86,7 @@ class SignIn extends Component {
                />
             )
             : null}
-            {this.state.load === false ? "Sign In" : " Loading"}
+            {isAuthenticating === false ? "Sign In" : " Loading"}
           </Button>
         </Form>
       </div>
@@ -97,10 +94,11 @@ class SignIn extends Component {
   }
 }
 
-function mapStateToProps({ users }) {
+function mapStateToProps({ users, loadingBar }) {
   return {
     usersId: Object.keys(users),
     users,
+    isAuthenticating: loadingBar.autheticating || false,
   };
 }
 

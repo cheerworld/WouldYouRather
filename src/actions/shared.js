@@ -63,14 +63,17 @@ export function addPollToStore(info) {
 export function handleCheckUserPassword (user, password) {
   return (dispatch) => {
     dispatch(showLoading());
+    dispatch(showLoading("autheticating"));
     return checkUserPassword(user, password)
     .then(() => {
       console.log("matches");
       dispatch(setAuthedUser(user));
       dispatch(hideLoading());
+      dispatch(hideLoading("autheticating"));
     })
     .catch(() => {
       dispatch(hideLoading());
+      dispatch(hideLoading("autheticating"));
       console.log("fails");
       alert("Wrong password, please try again!");
     });
